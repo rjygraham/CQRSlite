@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6072FF1-70BF-45C9-B197-A88CDB960AF1}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CQRSlite.Phone.Code</RootNamespace>
+    <AssemblyName>CQRSlite.Phone.Code</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CQRSCode\CommandHandlers\InventoryCommandHandlers.cs">
+      <Link>CommandHandlers\InventoryCommandHandlers.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Commands\CheckInItemsToInventory.cs">
+      <Link>Commands\CheckInItemsToInventory.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Commands\CreateInventoryItem.cs">
+      <Link>Commands\CreateInventoryItem.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Commands\DeactivateInventoryItem.cs">
+      <Link>Commands\DeactivateInventoryItem.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Commands\RemoveItemsFromInventory.cs">
+      <Link>Commands\RemoveItemsFromInventory.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Commands\RenameInventoryItem.cs">
+      <Link>Commands\RenameInventoryItem.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Domain\EventStore.cs">
+      <Link>Domain\EventStore.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Domain\InventoryItem.cs">
+      <Link>Domain\InventoryItem.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Events\InventoryItemCreated.cs">
+      <Link>Events\InventoryItemCreated.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Events\InventoryItemDeactivated.cs">
+      <Link>Events\InventoryItemDeactivated.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Events\InventoryItemRenamed.cs">
+      <Link>Events\InventoryItemRenamed.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Events\ItemsCheckedInToInventory.cs">
+      <Link>Events\ItemsCheckedInToInventory.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Events\ItemsRemovedFromInventory.cs">
+      <Link>Events\ItemsRemovedFromInventory.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\Infrastructure\InMemoryDatabase.cs">
+      <Link>Infrastructure\InMemoryDatabase.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\ReadModel\Dtos\InventoryItemDetailsDto.cs">
+      <Link>ReadModel\Dtos\InventoryItemDetailsDto.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\ReadModel\Dtos\InventoryItemListDto.cs">
+      <Link>ReadModel\Dtos\InventoryItemListDto.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\ReadModel\Handlers\InvenotryItemDetailView.cs">
+      <Link>ReadModel\Handlers\InvenotryItemDetailView.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\ReadModel\Handlers\InventoryListView.cs">
+      <Link>ReadModel\Handlers\InventoryListView.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\ReadModel\IReadModelFacade.cs">
+      <Link>ReadModel\IReadModelFacade.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSCode\ReadModel\ReadModelFacade.cs">
+      <Link>ReadModel\ReadModelFacade.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\CQRSlite.Phone\CQRSlite.Phone.csproj">
+      <Project>{80A6D461-1B48-4A92-ADC9-D083EC511E66}</Project>
+      <Name>CQRSlite.Phone</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

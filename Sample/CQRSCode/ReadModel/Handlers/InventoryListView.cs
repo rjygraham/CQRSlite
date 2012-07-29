@@ -2,6 +2,7 @@
 using CQRSCode.Infrastructure;
 using CQRSCode.ReadModel.Dtos;
 using CQRSlite;
+using System.Linq;
 
 namespace CQRSCode.ReadModel.Handlers
 {
@@ -14,13 +15,13 @@ namespace CQRSCode.ReadModel.Handlers
 
         public void Handle(InventoryItemRenamed message)
         {
-            var item = InMemoryDatabase.List.Find(x => x.Id == message.Id);
+            var item = InMemoryDatabase.List.Single(x => x.Id == message.Id);
             item.Name = message.NewName;
         }
 
         public void Handle(InventoryItemDeactivated message)
         {
-            InMemoryDatabase.List.RemoveAll(x => x.Id == message.Id);
+            InMemoryDatabase.List = InMemoryDatabase.List.Where(w => w.Id != message.Id).ToList();
         }
     }
 }

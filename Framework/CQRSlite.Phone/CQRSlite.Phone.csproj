@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80A6D461-1B48-4A92-ADC9-D083EC511E66}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CQRSlite.Phone</RootNamespace>
+    <AssemblyName>CQRSlite.Phone</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CQRSlite\Bus\InProcessBus.cs">
+      <Link>Bus\InProcessBus.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Commanding\Command.cs">
+      <Link>Commanding\Command.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Commanding\ICommandSender.cs">
+      <Link>Commanding\ICommandSender.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Config\IServiceLocator.cs">
+      <Link>Config\IServiceLocator.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Domain\AggregateRoot.cs">
+      <Link>Domain\AggregateRoot.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Domain\Exception\AggregateNotFoundException.cs">
+      <Link>Domain\Exception\AggregateNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Domain\Exception\ConcurrencyException.cs">
+      <Link>Domain\Exception\ConcurrencyException.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Domain\Exception\EventsOutOfOrderException.cs">
+      <Link>Domain\Exception\EventsOutOfOrderException.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Domain\Exception\MissingParameterLessConstructorException.cs">
+      <Link>Domain\Exception\MissingParameterLessConstructorException.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Domain\IRepository.cs">
+      <Link>Domain\IRepository.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Domain\ISession.cs">
+      <Link>Domain\ISession.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Domain\Repository.cs">
+      <Link>Domain\Repository.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Domain\Session.cs">
+      <Link>Domain\Session.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Eventing\Event.cs">
+      <Link>Eventing\Event.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Eventing\IEventPublisher.cs">
+      <Link>Eventing\IEventPublisher.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Eventing\IEventStore.cs">
+      <Link>Eventing\IEventStore.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\IHandles.cs">
+      <Link>IHandles.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Infrastructure\AggregateActivator.cs">
+      <Link>Infrastructure\AggregateActivator.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Infrastructure\DelegateHelper.cs">
+      <Link>Infrastructure\DelegateHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Infrastructure\ExtensionMethods.cs">
+      <Link>Infrastructure\ExtensionMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Message.cs">
+      <Link>Message.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Snapshotting\DefaultSnapshotStrategy.cs">
+      <Link>Snapshotting\DefaultSnapshotStrategy.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Snapshotting\ISnapshotStore.cs">
+      <Link>Snapshotting\ISnapshotStore.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Snapshotting\ISnapshotStrategy.cs">
+      <Link>Snapshotting\ISnapshotStrategy.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Snapshotting\Snapshot.cs">
+      <Link>Snapshotting\Snapshot.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Snapshotting\SnapshotAggregateRoot.cs">
+      <Link>Snapshotting\SnapshotAggregateRoot.cs</Link>
+    </Compile>
+    <Compile Include="..\CQRSlite\Snapshotting\SnapshotRepository.cs">
+      <Link>Snapshotting\SnapshotRepository.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

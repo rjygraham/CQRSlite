@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSlite.Phone", "Framework\CQRSlite.Phone\CQRSlite.Phone.csproj", "{80A6D461-1B48-4A92-ADC9-D083EC511E66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSlite.Phone.App", "Sample\CQRSlite.Phone.App\CQRSlite.Phone.App.csproj", "{6EB921B5-1C0E-44E6-9553-1DB13635948D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSlite.Phone.Code", "Sample\CQRSlite.Phone.Code\CQRSlite.Phone.Code.csproj", "{C6072FF1-70BF-45C9-B197-A88CDB960AF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80A6D461-1B48-4A92-ADC9-D083EC511E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A6D461-1B48-4A92-ADC9-D083EC511E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A6D461-1B48-4A92-ADC9-D083EC511E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A6D461-1B48-4A92-ADC9-D083EC511E66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EB921B5-1C0E-44E6-9553-1DB13635948D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EB921B5-1C0E-44E6-9553-1DB13635948D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EB921B5-1C0E-44E6-9553-1DB13635948D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6EB921B5-1C0E-44E6-9553-1DB13635948D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EB921B5-1C0E-44E6-9553-1DB13635948D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EB921B5-1C0E-44E6-9553-1DB13635948D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C6072FF1-70BF-45C9-B197-A88CDB960AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6072FF1-70BF-45C9-B197-A88CDB960AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6072FF1-70BF-45C9-B197-A88CDB960AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6072FF1-70BF-45C9-B197-A88CDB960AF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

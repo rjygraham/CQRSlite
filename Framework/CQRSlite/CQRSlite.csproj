@@ -62,7 +62,8 @@
     <Compile Include="Domain\Session.cs" />
     <Compile Include="Eventing\IEventPublisher.cs" />
     <Compile Include="Eventing\IEventStore.cs" />
-    <Compile Include="Bus\IHandleRegister.cs" />
+    <Compile Include="Infrastructure\DelegateHelper.cs" />
+    <Compile Include="Infrastructure\ExtensionMethods.cs" />
     <Compile Include="Snapshotting\ISnapshotStore.cs" />
     <Compile Include="Infrastructure\AggregateActivator.cs" />
     <Compile Include="Snapshotting\Snapshot.cs" />
@@ -71,14 +72,10 @@
     <Compile Include="Domain\Exception\AggregateNotFoundException.cs" />
     <Compile Include="Domain\Exception\ConcurrencyException.cs" />
     <Compile Include="Bus\InProcessBus.cs" />
-    <Compile Include="Infrastructure\DelegateAdjuster.cs" />
     <Compile Include="Eventing\Event.cs" />
     <Compile Include="Snapshotting\ISnapshotStrategy.cs" />
-    <Compile Include="Infrastructure\PrivateReflectionDynamicObject.cs" />
-    <Compile Include="Infrastructure\PrivateReflectionDynamicObjectExtensions.cs" />
     <Compile Include="Snapshotting\DefaultSnapshotStrategy.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="Config\BusRegisterer.cs" />
     <Compile Include="Snapshotting\SnapshotRepository.cs" />
   </ItemGroup>
   <ItemGroup>

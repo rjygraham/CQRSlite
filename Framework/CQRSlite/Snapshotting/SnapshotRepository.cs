@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using CQRSlite.Domain;
 using CQRSlite.Eventing;
 using CQRSlite.Infrastructure;
@@ -12,6 +14,9 @@ namespace CQRSlite.Snapshotting
         private readonly ISnapshotStrategy _snapshotStrategy;
         private readonly IRepository _repository;
         private readonly IEventStore _eventStore;
+
+        private readonly IDictionary<Type, LateBoundAction> _restoreSnapshotCache = new Dictionary<Type, LateBoundAction>();
+        private readonly IDictionary<Type, LateBoundFunc> _getSnapshotCache = new Dictionary<Type, LateBoundFunc>();
 
         public SnapshotRepository(ISnapshotStore snapshotStore, ISnapshotStrategy snapshotStrategy, IRepository repository, IEventStore eventStore)
         {
@@ -49,7 +54,8 @@ namespace CQRSlite.Snapshotting
                 var snapshot = _snapshotStore.Get(id);
                 if (snapshot != null)
                 {
-                    aggregate.AsDynamic().Restore(snapshot);
+                    var action = GetSnapshotRestoreAction(aggregate.GetType());
+                    action(aggregate, new object[] { snapshot });
                     version = snapshot.Version;
                 }
             }
@@ -60,9 +66,32 @@ namespace CQRSlite.Snapshotting
         {
             if (!_snapshotStrategy.ShouldMakeSnapShot(aggregate))
                 return;
-            var snapshot = aggregate.AsDynamic().GetSnapshot().RealObject;
+
+            var func = GetSnapshotGetFunc(aggregate.GetType());
+            var snapshot = (Snapshot)func(aggregate, new object[] { });
+
             snapshot.Version = aggregate.Version + aggregate.GetUncommittedChanges().Count();
             _snapshotStore.Save(snapshot);
+        }
+
+        private LateBoundAction GetSnapshotRestoreAction(Type aggregateType)
+        {
+            if (!_restoreSnapshotCache.ContainsKey(aggregateType))
+            {
+                var method = aggregateType.GetMethod("RestoreFromSnapshot", BindingFlags.NonPublic | BindingFlags.Instance);
+                _restoreSnapshotCache.Add(aggregateType, DelegateHelper.CreateAction(method));
+            }
+            return _restoreSnapshotCache[aggregateType];
+        }
+
+        private LateBoundFunc GetSnapshotGetFunc(Type aggregateType)
+        {
+            if (!_getSnapshotCache.ContainsKey(aggregateType))
+            {
+                var method = aggregateType.GetMethod("CreateSnapshot", BindingFlags.NonPublic | BindingFlags.Instance);
+                _getSnapshotCache.Add(aggregateType, DelegateHelper.CreateFunc(method));
+            }
+            return _getSnapshotCache[aggregateType];
         }
     }
 }

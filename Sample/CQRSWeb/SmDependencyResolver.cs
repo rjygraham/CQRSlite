@@ -13,6 +13,7 @@ namespace CQRSWeb
 
         public SmDependencyResolver(IContainer container) {
             _container = container;
+            _container.Configure(x => x.For<IServiceLocator>().Use(this));
         }
 
         public T GetService<T>()

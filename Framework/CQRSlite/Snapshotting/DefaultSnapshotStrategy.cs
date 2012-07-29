@@ -6,7 +6,7 @@ namespace CQRSlite.Snapshotting
 {
     public class DefaultSnapshotStrategy : ISnapshotStrategy
     {
-        private const int SnapshotInterval = 15;
+        private const int SnapshotInterval = 2;
         public bool IsSnapshotable(Type aggregateType)
         {
             if (aggregateType.BaseType == null)

@@ -32,13 +32,7 @@ namespace CQRSWeb
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-            RegisterHandlers((IServiceLocator)DependencyResolver.Current);
         }
 
-        private void RegisterHandlers(IServiceLocator serviceLocator)
-        {
-            var registerer = new BusRegisterer(serviceLocator);
-            registerer.Register(typeof(IHandles<>), typeof(ReadModelFacade));
-        }
     }
 }
